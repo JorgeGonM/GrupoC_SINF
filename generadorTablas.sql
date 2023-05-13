@@ -45,7 +45,7 @@ CREATE TABLE Recinto(
     Calle VARCHAR(100) NOT NULL,
     Numero INT CHECK (Numero > 0),
     Ciudad VARCHAR(100) NOT NULL,
-    Sala INT CHECK (Sala > 0),
+    Sala INT CHECK (Sala > 0 ),
     Aforo INT NOT NULL CHECK (Aforo > 0),
     CONSTRAINT direccion UNIQUE (Nombre, Calle, Numero, Ciudad, Sala)
 );
@@ -54,9 +54,9 @@ CREATE TABLE Recinto(
 CREATE TABLE Espectaculo(
 
     IDEspectaculo INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    Nombre VARCHAR(100) NOT NULL,
+    Nombre VARCHAR(200) NOT NULL,
     FechaEspectaculo DATETIME NOT NULL,
-    TipoEspectaculo VARCHAR(30),
+    TipoEspectaculo VARCHAR(30) NOT NULL,
     ProductorEspectaculo VARCHAR(100),
     PrecioBase FLOAT NOT NULL CHECK (PrecioBase >= 0),
     CONSTRAINT infoEspectaculo UNIQUE (FechaEspectaculo, TipoEspectaculo, Nombre)
@@ -70,37 +70,40 @@ CREATE TABLE Evento(
     IDRecinto INT NOT NULL,
     FechaInicio DATETIME NOT NULL,
     FechaFin DATETIME NOT NULL,
-    FechaAnulacion DATETIME,    
     FechaReserva DATETIME,
-    Estado VARCHAR(100) DEFAULT "Abierto" NOT NULL CHECK (Estado = "Abierto" OR Estado = "Cerrado" OR Estado = "Finalizado"),
+    FechaAnulacion DATETIME, 
+    Estado VARCHAR(100) DEFAULT "Abierto" NOT NULL CHECK (Estado = "Abierto" OR Estado = "No Disponible" OR Estado = "Finalizado"),
     CONSTRAINT infoEvento UNIQUE (IDEspectaculo, IDRecinto, FechaInicio),  
-    FOREIGN KEY (IDEspectaculo) REFERENCES Espectaculo(IDEspectaculo),
-    FOREIGN KEY (IDRecinto) REFERENCES Recinto(IDRecinto)
+    FOREIGN KEY (IDEspectaculo) REFERENCES Espectaculo (IDEspectaculo),
+    FOREIGN KEY (IDRecinto) REFERENCES Recinto (IDRecinto)
 );
 
 
 CREATE TABLE Grada(
 
-    IDGrada INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    IDRecinto INT NOT NULL,
-    Nombre VARCHAR(150) NOT NULL,
+    ID_grada INT AUTO_INCREMENT NOT NULL,
+    ID_recinto INT NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
     SuplementoPrecio FLOAT DEFAULT 1.0 NOT NULL CHECK (SuplementoPrecio >= 1),
     Capacidad INT NOT NULL CHECK (Capacidad > 0),
-    CONSTRAINT infoGrada UNIQUE (Nombre, IDRecinto),
-    FOREIGN KEY (IDRecinto) REFERENCES Recinto(IDRecinto)
+    PRIMARY KEY (ID_grada),
+    CONSTRAINT nombre_recinto UNIQUE (ID_recinto, Nombre),
+    FOREIGN KEY (ID_recinto) REFERENCES Recinto (IDRecinto)
 );
 
 CREATE TABLE Localidad(
 
     IDRecinto INT NOT NULL,
     IDGrada INT NOT NULL,
-    IDLocalidad INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    IDLocalidad INT AUTO_INCREMENT NOT NULL,
     Numero INT NOT NULL CHECK (Numero >= 0),
-    Estado VARCHAR(65) DEFAULT "Disponible" NOT NULL CHECK (Estado = "Disponible" OR Estado = "No Disponible"),
-    CONSTRAINT infoLocalidad UNIQUE (IDRecinto, IDGrada, Numero),
+    Estado VARCHAR(50) DEFAULT "Disponible" NOT NULL CHECK (Estado = "Disponible" OR Estado = "No Disponible"),
+    PRIMARY KEY (IDLocalidad),
+    CONSTRAINT recinto_grada_numeroLocalidad UNIQUE (IDRecinto, IDGrada, Numero),
     FOREIGN KEY (IDRecinto) REFERENCES Recinto (IDRecinto),
-    FOREIGN KEY (IDGrada) REFERENCES Grada (IDGrada) 
+    FOREIGN KEY (IDGrada) REFERENCES Grada (ID_grada) 
 );
+
 
 
 
@@ -113,9 +116,9 @@ CREATE TABLE Entrada(
     Estado VARCHAR(50) DEFAULT "Disponible" NOT NULL CHECK (Estado = "Disponible" OR Estado = "Comprada" OR Estado = "Reservada" OR Estado = "No Disponible"),
     PrecioTotal FLOAT DEFAULT NULL,
     CONSTRAINT evento_localidad UNIQUE (IDLocalidad, IDEvento),
-    FOREIGN KEY (IDEvento) REFERENCES Evento(IDEvento),
-    FOREIGN KEY (IDLocalidad) REFERENCES Localidad(IDLocalidad),
-    FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
+    FOREIGN KEY (IDEvento) REFERENCES Evento (IDEvento),
+    FOREIGN KEY (IDLocalidad) REFERENCES Localidad (IDLocalidad),
+    FOREIGN KEY (IDCliente) REFERENCES Cliente (IDCliente)
 );
 
 CREATE TABLE EntradaAnulada(
@@ -125,8 +128,8 @@ CREATE TABLE EntradaAnulada(
     IDCliente VARCHAR(15) NOT NULL,
     PrecioTotal FLOAT NOT NULL,
     Vendida BOOLEAN DEFAULT FALSE NOT NULL,
-    FOREIGN KEY (IDEvento) REFERENCES Evento(IDEvento),
-    FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
+    FOREIGN KEY (IDEvento) REFERENCES Evento (IDEvento),
+    FOREIGN KEY (IDCliente) REFERENCES Cliente (IDCliente)
 );
 
 
@@ -136,8 +139,8 @@ CREATE TABLE EntradaLocalidad(
     IDLocalidad INT NOT NULL,
     TipoUsuario VARCHAR(50) DEFAULT "Adulto",
     PRIMARY KEY (IDEntrada, IDLocalidad),
-    FOREIGN KEY (IDEntrada) REFERENCES Entrada(IDEntrada),
-    FOREIGN KEY (IDLocalidad) REFERENCES Localidad(IDLocalidad)
+    FOREIGN KEY (IDEntrada) REFERENCES Entrada (IDEntrada),
+    FOREIGN KEY (IDLocalidad) REFERENCES Localidad (IDLocalidad)
 
 );
 

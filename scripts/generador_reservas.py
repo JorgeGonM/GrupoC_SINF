@@ -2,17 +2,17 @@ import sys
 import random
 import string
 
-def generar_entrada():
+def generar_reservas():
     # Generamos un ID de cliente aleatorio
     
     
-    id_evento = ''.join(random.choices(string.digits, k=8))
-    id_localidad = ''.join(random.choices(string.digits, k=8))
-    id_cliente = ''.join(random.choices(string.digits, k=8))
+    id_evento = random.randint(1,40)
+    id_localidad = ''.join(random.choices(string.digits, k=random.randint(2,4)))
+    id_cliente = ''.join(random.choices(string.digits, k=5))
     tipoUser = random.choice(['Bebe', 'Infantil', 'Adulto', 'Parado', 'Jubilado'])
     
     # Creamos la línea de INSERT con los datos generados
-    linea_insert = "call reservaDeEntradas ('" + id_evento + "','" + id_localidad + "','" + id_cliente + "','" + tipoUser + "');"
+    linea_insert = "call reservaDeEntradas (" + str(id_evento) + "," + id_localidad + ",'" + id_cliente + "','" + tipoUser + "');"
     
     return linea_insert
 
@@ -27,9 +27,8 @@ else:
 
 # Abrimos el archivo en modo de escritura
 
-with open('../datos/insertarReservaEntradas.sql', 'w') as archivo:
-    archivo.write("-- id_evento id_localidad id_cliente metodoDePago numCuenta tipoUser\n")
+with open('../Datos/reservas.sql', 'w') as archivo:
     # Generamos 10 líneas de INSERT con datos aleatorios y las escribimos en el archivo
     for i in range(num_entradas):
-        linea_insert = generar_entrada()
+        linea_insert = generar_reservas()
         archivo.write(linea_insert + '\n')

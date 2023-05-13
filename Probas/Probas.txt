@@ -1,0 +1,34 @@
+PROBA 1:
+
+	Nesta proba mostramos por pantalla o número de tuplas que ten cada tabla no noso sistema.
+	
+PROBA 2:
+
+	Nesta proba comprobamos a funcionalidade das restricións CHECK das gradas e mostramos mensaxes de erro.
+	
+PROBA 3:
+
+	Nesta proba comprobamos a funcionalidade das restricións CHECK do recinto e mostramos mensaxes de erro.
+	
+PROBA 4:
+
+	Nesta proba comprobamos a funcionalidade das restricións CHECK do espectaculo e mostramos mensaxes de erro.
+	
+PROBA 5:
+
+	Nesta proba comprobamos a creacion e eliminación de gradas e eventos empregando os procedementos almacenados.
+	
+PROBA 6:
+	
+	Nesta proba comprobamos como creamos as entradas ao crear unha grada e estas se eliminan ao eliminar a grada ou cancelar o evento.
+	
+PROBA 7:
+
+	Nesta proba comprobamos que se pode reservar entradas, comprar entradas, anular entradas e volver comprar estas entradas.
+	
+	
+	
+	
+	
+	
+	

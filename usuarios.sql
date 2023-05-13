@@ -2,7 +2,13 @@ DROP USER IF EXISTS 'administracion'@'localhost';
 CREATE USER 'administracion'@'localhost' IDENTIFIED BY 'Administracion_1.';
 
 GRANT SELECT ON VistaDeRecintos TO 'administracion'@'localhost';
-
+GRANT EXECUTE ON PROCEDURE crearRecinto TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE crearEspectaculo TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE crearEvento TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE crearGrada TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE eliminarGrada TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE cancelarEvento TO 'administracion'@'localhost';
+GRANT EXECUTE ON PROCEDURE estadoLocalidad TO 'administracion'@'localhost';
 
 
 
@@ -14,7 +20,9 @@ GRANT SELECT ON VistaDeEntradas TO 'cliente'@'localhost';
 GRANT EXECUTE ON PROCEDURE reservaDeEntradas TO 'cliente'@'localhost';
 GRANT EXECUTE ON PROCEDURE compraDeEntradas TO 'cliente'@'localhost';
 GRANT EXECUTE ON PROCEDURE anulacionDeEntradas TO 'cliente'@'localhost';
-
+GRANT EXECUTE ON PROCEDURE engadirCliente TO 'cliente'@'localhost';
+GRANT EXECUTE ON PROCEDURE EntradasCliente TO 'cliente'@'localhost';
+GRANT EXECUTE ON PROCEDURE EntradasDisponibles TO 'cliente'@'localhost';
 
 
 
