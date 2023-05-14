@@ -271,7 +271,7 @@ CREATE PROCEDURE EntradasDisponibles(
 
 BEGIN
 
-    SELECT Localidad.Numero FROM EntradaDisponible 
+    SELECT Localidad.IDGrada, Localidad.Numero AS 'Numero Localidad' FROM Entrada
     JOIN Localidad ON Localidad.IDLocalidad = Entrada.IDLocalidad
     WHERE IDEvento = IDEventoIN AND Entrada.Estado = "Disponible";
 

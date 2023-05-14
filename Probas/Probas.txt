@@ -26,7 +26,13 @@ PROBA 7:
 
 	Nesta proba comprobamos que se pode reservar entradas, comprar entradas, anular entradas e volver comprar estas entradas.
 	
+PROBA 8:
+
+	Nesta proba comprobamos o funcionamento do procedimiento "estadoLocalidad" xunto co Trigger "TriggerEstadoLocalidades".
 	
+PROBA 9:
+
+	Nesta proba comprobamos que cada cada usuario só pode aceder ao que ten permiso. Definido no fichero 'usuario.sql'
 	
 	
 	

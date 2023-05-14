@@ -1,5 +1,5 @@
 DROP USER IF EXISTS 'administracion'@'localhost';
-CREATE USER 'administracion'@'localhost' IDENTIFIED BY 'Administracion_1.';
+CREATE USER 'administracion'@'localhost' IDENTIFIED BY 'Administracion_1';
 
 GRANT SELECT ON VistaDeRecintos TO 'administracion'@'localhost';
 GRANT EXECUTE ON PROCEDURE crearRecinto TO 'administracion'@'localhost';
@@ -29,7 +29,7 @@ GRANT EXECUTE ON PROCEDURE EntradasDisponibles TO 'cliente'@'localhost';
 
 
 DROP USER IF EXISTS 'mantenimiento'@'localhost';
-CREATE USER 'mantenimiento'@'localhost' IDENTIFIED BY 'Mantenimiento_1.';
+CREATE USER 'mantenimiento'@'localhost' IDENTIFIED BY 'Mantenimiento_1';
 
 GRANT ALL PRIVILEGES ON *.* TO 'mantenimiento'@'localhost';
 
