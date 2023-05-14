@@ -29,7 +29,7 @@ else:
 
 # Abrimos el archivo en modo de escritura
 
-with open('../datos/insetarCompraEntrada.sql', 'w') as archivo:
+with open('../Datos/insetarCompraEntrada.sql', 'w') as archivo:
     archivo.write("-- id_evento id_localidad id_cliente metodoDePago numCuenta tipoUser\n")
     # Generamos 10 líneas de INSERT con datos aleatorios y las escribimos en el archivo
     for i in range(num_entradas):
