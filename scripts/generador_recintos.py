@@ -17,9 +17,9 @@ def generar_recintos():
     
     # Generamos una sala aleatoria
     if random.random() < 0.3:
-    	sala = 'null'
+        sala = 'null'
     else:
-    	sala = ''.join(random.choices(string.digits, k=random.randint(1,4)))
+        sala = ''.join(random.choices(string.digits, k=random.randint(1,4)))
         
     # Generamos un numero aleatorio
     aforo = ''.join(random.choices(string.digits, k=random.randint(4,6)))
