@@ -1,6 +1,18 @@
 # GrupoC_SINF
 Proxecto Taquilla Virtual
 
+## Usuarios
+Están definidos en [usuarios.sql](./usuarios.sql)
+Tenemos 3 tipos de usuarios:
+- Adminsitrador
+- Cliente
+- Mantenimiento
+
+### Administrador
+
+
+
+
 ## Procedimientos
 Los procedimientos que hemos creado son los siguientes:
 

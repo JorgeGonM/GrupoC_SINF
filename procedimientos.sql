@@ -732,7 +732,7 @@ ON SCHEDULE EVERY 10 MINUTE
 DO
 BEGIN
 
-    CALL comprobacionEstadoEntradas();
+    CALL comprobarEstadoEntradas();
     CALL comprobarEstadoEventos();
     
 END //
