@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos o funcionamento do procedimiento "estadoLocalidad" xunto co Trigger "TriggerEstadoLocalidades".
 SYSTEM clear;
 
 call engadirCliente('35257898E','mariana1652000@gmail.com');

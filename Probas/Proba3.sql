@@ -1,6 +1,5 @@
+-- Nesta proba comprobamos a funcionalidade das restricións CHECK do recinto e mostramos mensaxes de erro.
 SYSTEM clear;
-
-
 
 INSERT INTO Recinto (Nombre, Calle, Numero, Ciudad, Sala, Aforo) VALUES ('Balaídos','Avenida de Balaídos', 0, 'Vigo', NULL, 10000);
 

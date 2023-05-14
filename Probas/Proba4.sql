@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos a funcionalidade das restricións CHECK do espectaculo e mostramos mensaxes de erro.
 SYSTEM clear;
 
 INSERT INTO Espectaculo (Nombre, FechaEspectaculo, TipoEspectaculo, ProductorEspectaculo, PrecioBase) VALUES ('El lago de los cisnes', '1987-01-16 06:02:20', 'Ballet', 'Matthew Bourne', -50);

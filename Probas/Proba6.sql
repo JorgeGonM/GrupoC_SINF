@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos como creamos as entradas ao crear unha grada e estas se eliminan ao eliminar a grada ou cancelar o evento.
 SYSTEM clear;
 
 call crearRecinto('Vigo','Balaídos', 'Avenida de Balaídos', 15, NULL, 10000);

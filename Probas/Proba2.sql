@@ -1,6 +1,5 @@
+-- Nesta proba comprobamos a funcionalidade das restricións CHECK das gradas e mostramos mensaxes de erro.
 SYSTEM clear;
-
-
 
 SELECT * FROM Recinto WHERE IDRecinto = 5;
 

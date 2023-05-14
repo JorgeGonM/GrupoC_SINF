@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos que se pode reservar entradas, comprar entradas, anular entradas e volver comprar estas entradas.
 SYSTEM clear;
 
 call engadirCliente('35257898E','mariana1652000@gmail.com');

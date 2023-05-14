@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos que cada cada usuario só pode aceder ao que ten permiso. Definido no fichero 'usuario.sql'
 SYSTEM clear;
 
 USE Proxecto;

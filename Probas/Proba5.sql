@@ -1,3 +1,4 @@
+-- Nesta proba comprobamos a creacion e eliminación de gradas e eventos empregando os procedementos almacenados.
 SYSTEM clear;
 
 call crearRecinto('Vigo','Balaídos', 'Avenida de Balaídos', 15, NULL, 10000);
